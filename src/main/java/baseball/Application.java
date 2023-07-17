@@ -1,8 +1,12 @@
 package baseball;
 
+import baseball.domain.NumberGenerator;
 import baseball.domain.Referee;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * 객체 지향 프로그래밍
@@ -13,8 +17,25 @@ import java.util.Arrays;
 public class Application {
 
     public static void main(String[] args) {
+
+        NumberGenerator generator = new NumberGenerator();
+        List<Integer> computer = generator.createRandomNumbers();
         Referee referee = new Referee();
-        String result = referee.compare(Arrays.asList(1, 2, 3), Arrays.asList(4, 5, 6));
-        System.out.println(result); // 0볼 3스트라이크
+
+        String result = "";
+        while (!result.equals("0볼 3스트라이크")) {
+            result = referee.compare(computer, askNumbers());
+            System.out.println(result);
+        }
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+    }
+
+    public static List<Integer> askNumbers() {
+        System.out.println("숫자를 입력해주세요 : ");
+        Scanner scanner = new Scanner(System.in);
+        String player = scanner.nextLine();
+        return Arrays.stream(player.split(" "))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 }
