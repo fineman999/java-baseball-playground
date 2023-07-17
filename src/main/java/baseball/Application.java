@@ -14,7 +14,7 @@ public class Application {
 
     public static void main(String[] args) {
         Referee referee = new Referee();
-        String result = referee.compare(Arrays.asList(1, 2, 3), Arrays.asList(1, 2, 3));
+        String result = referee.compare(Arrays.asList(1, 2, 3), Arrays.asList(4, 5, 6));
         System.out.println(result); // 0볼 3스트라이크
     }
 }
