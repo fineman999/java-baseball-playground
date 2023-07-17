@@ -18,7 +18,9 @@ public class Application {
 //        System.out.println(numbers);
 
         Judgement judgement = new Judgement();
-        int count = judgement.correctCount(Arrays.asList(1, 2, 3), Arrays.asList(1, 2, 3));
-        System.out.println(count); // 3
+//        int count = judgement.correctCount(Arrays.asList(1, 2, 3), Arrays.asList(1, 2, 3));
+//        System.out.println(count); // 3
+        boolean place = judgement.hasPlace(Arrays.asList(1, 2, 3), 0, 1);// true
+        System.out.println(place);
     }
 }
